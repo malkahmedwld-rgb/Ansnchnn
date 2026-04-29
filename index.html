@@ -5,164 +5,213 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مراجع نبات اللوتس والتصنيف العلمي</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 20px;
-            background-color: #f4f7f6;
-            color: #2c3e50;
-        }
-        .container {
-            max-width: 950px;
-            margin: 0 auto;
-            background: #fff;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-        }
-        h1 {
-            color: #00695c;
-            text-align: center;
-            border-bottom: 3px double #00695c;
-            padding-bottom: 15px;
-            margin-bottom: 20px;
-        }
-        
-        /* قسم أسماء الطلبة */
-        .students-section {
-            background: #e0f2f1;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-            text-align: center;
-            border: 1px solid #b2dfdb;
-        }
-        .students-section h2 {
-            font-size: 1.1em;
-            margin-top: 0;
-            color: #004d40;
-        }
-        .student-list {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-        .student-name {
-            background: #fff;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-weight: bold;
-            color: #00695c;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        :root {
+            --primary-pink: #db2777;
+            --soft-pink: #fdf2f8;
+            --deep-rose: #9d174d;
+            --card-bg: #ffffff;
+            --text-main: #374151;
         }
 
-        .reference-card {
-            background: #ffffff;
-            border: 1px solid #e0e0e0;
-            border-right: 8px solid #00897b;
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.7;
+            margin: 0;
             padding: 20px;
-            margin-bottom: 25px;
-            border-radius: 5px;
+            background-color: var(--soft-pink);
+            color: var(--text-main);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(219, 39, 119, 0.1);
+        }
+
+        h1 {
+            color: var(--deep-rose);
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: var(--primary-pink);
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+            opacity: 0.8;
+        }
+
+        /* قسم الطلبة بتصميم UX عصري */
+        .students-card {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            border: 1px solid #fce7f3;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+
+        .students-card h2 {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--deep-rose);
+            margin-bottom: 20px;
+            text-align: center;
+            border-bottom: 1px solid #fbcfe8;
+            padding-bottom: 10px;
+        }
+
+        .student-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+        }
+
+        .student-item {
+            background: #fff5f7;
+            padding: 12px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 600;
+            color: var(--deep-rose);
+            border: 1px solid #fce7f3;
             transition: all 0.3s ease;
         }
+
+        .student-item:hover {
+            background: var(--primary-pink);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* بطاقات المراجع */
+        .reference-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-left: 6px solid var(--primary-pink);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
         .reference-card:hover {
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            background-color: #f0fdfa;
+            transform: translateX(-5px);
+            box-shadow: 0 12px 25px rgba(219, 39, 119, 0.1);
         }
-        .author-year {
-            font-weight: bold;
-            color: #004d40;
-            font-size: 1.1em;
+
+        .author {
             display: block;
-            margin-bottom: 5px;
+            font-weight: 700;
+            color: var(--deep-rose);
+            margin-bottom: 8px;
+            font-size: 1.05rem;
         }
-        .article-title {
+
+        .title {
+            display: block;
             font-style: italic;
-            color: #333;
-            display: block;
-            margin-bottom: 10px;
+            color: var(--text-main);
+            margin-bottom: 12px;
+            line-height: 1.5;
         }
+
         .journal {
-            color: #666;
-            font-size: 0.9em;
             display: block;
+            font-size: 0.9rem;
+            color: #6b7280;
             margin-bottom: 15px;
         }
-        .link-btn {
-            display: inline-block;
-            color: #00796b;
+
+        .action-link {
+            display: inline-flex;
+            align-items: center;
+            background: var(--soft-pink);
+            color: var(--primary-pink);
+            padding: 8px 18px;
+            border-radius: 10px;
             text-decoration: none;
-            font-size: 0.85em;
-            background: #e0f2f1;
-            padding: 6px 15px;
-            border-radius: 20px;
-            border: 1px solid #b2dfdb;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: 0.2s;
         }
-        .link-btn:hover {
-            background: #00796b;
-            color: #fff;
+
+        .action-link:hover {
+            background: var(--primary-pink);
+            color: white;
+        }
+
+        @media (max-width: 600px) {
+            .container { padding: 20px; margin: 10px; }
+            h1 { font-size: 1.5rem; }
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>📚 مراجع تصنيف النباتات واللوتس المقدس</h1>
+    <h1>المراجع العلمية</h1>
+    <p class="subtitle">نبات اللوتس المقدس والتصنيف النباتي الحديث</p>
 
-    <div class="students-section">
-        <h2>إعداد الطلبة:</h2>
-        <div class="student-list">
-            <span class="student-name">فرج أنغام</span>
-            <span class="student-name">فتني سندس</span>
-            <span class="student-name">ذيب نور الهدى</span>
-            <span class="student-name">خير الدين شهد</span>
+    <div class="students-card">
+        <h2>إعداد الطلبة</h2>
+        <div class="student-grid">
+            <div class="student-item">قدوري اسراء</div>
+            <div class="student-item">ملاوي مرام</div>
+            <div class="student-item">نصر سمير</div>
+            <div class="student-item">بوكرم عبد الرحمان</div>
         </div>
     </div>
 
     <div class="reference-card">
-        <span class="author-year">Angiosperm Phylogeny Group (APG IV). (2016)</span>
-        <span class="article-title">An update of the Angiosperm Phylogeny Group classification for the orders and families of flowering plants.</span>
+        <span class="author">Angiosperm Phylogeny Group (APG IV). (2016)</span>
+        <span class="title">An update of the Angiosperm Phylogeny Group classification for the orders and families of flowering plants.</span>
         <span class="journal">Botanical Journal of the Linnean Society.</span>
-        <a href="https://academic.oup.com/botlinnean/article/181/1/1/2416499" class="link-btn" target="_blank">رابط البحث الدراسي</a>
+        <a href="https://academic.oup.com/botlinnean/article/181/1/1/2416499" class="action-link" target="_blank">إطلاع على البحث</a>
     </div>
 
     <div class="reference-card">
-        <span class="author-year">Shen-Miller, J. et al. (2002)</span>
-        <span class="article-title">Long-living lotus: Germination and soil-irradiation of centuries-old fruits.</span>
+        <span class="author">Shen-Miller, J. et al. (2002)</span>
+        <span class="title">Long-living lotus: Germination and soil-irradiation of centuries-old fruits.</span>
         <span class="journal">American Journal of Botany, 89(2), 236–247.</span>
-        <a href="https://onlinelibrary.wiley.com/doi/abs/10.3732/ajb.89.2.236" class="link-btn" target="_blank">رابط المرجع</a>
+        <a href="https://onlinelibrary.wiley.com/doi/abs/10.3732/ajb.89.2.236" class="action-link" target="_blank">المصدر الأكاديمي</a>
     </div>
 
     <div class="reference-card">
-        <span class="author-year">Kashiwada, Y. et al. (2005)</span>
-        <span class="article-title">Anti-HIV benzylisoquinoline alkaloids from Nelumbo nucifera leaves.</span>
+        <span class="author">Kashiwada, Y. et al. (2005)</span>
+        <span class="title">Anti-HIV benzylisoquinoline alkaloids from Nelumbo nucifera leaves.</span>
         <span class="journal">Bioorganic & Medicinal Chemistry.</span>
-        <a href="https://doi.org/10.1016/j.bmc.2004.09.047" class="link-btn" target="_blank">رابط المقال العلمي</a>
+        <a href="https://doi.org/10.1016/j.bmc.2004.09.047" class="action-link" target="_blank">رابط المقال</a>
     </div>
 
     <div class="reference-card">
-        <span class="author-year">Menéndez-Perdomo, I. M., & Facchini, P. J. (2018)</span>
-        <span class="article-title">Benzylisoquinoline alkaloid biosynthesis in sacred lotus.</span>
+        <span class="author">Menéndez-Perdomo, I. M., & Facchini, P. J. (2018)</span>
+        <span class="title">Benzylisoquinoline alkaloid biosynthesis in sacred lotus.</span>
         <span class="journal">Molecules, 23(5), 1242.</span>
-        <a href="https://www.mdpi.com/1420-3049/23/5/1242" class="link-btn" target="_blank">عرض النص الكامل</a>
+        <a href="https://www.mdpi.com/1420-3049/23/5/1242" class="action-link" target="_blank">النص الكامل</a>
     </div>
 
     <div class="reference-card">
-        <span class="author-year">Royal Botanic Gardens, Kew</span>
-        <span class="article-title">Nelumbo nucifera species profile.</span>
+        <span class="author">Royal Botanic Gardens, Kew</span>
+        <span class="title">Nelumbo nucifera species profile.</span>
         <span class="journal">Plants of the World Online (POWO)</span>
-        <a href="https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:605422-1" class="link-btn" target="_blank">زيارة الموقع</a>
+        <a href="https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:605422-1" class="action-link" target="_blank">زيارة الموقع</a>
     </div>
 
     <div class="reference-card">
-        <span class="author-year">Encyclopedia of Life (EOL)</span>
-        <span class="article-title">Nelumbo nucifera (Sacred lotus) information page.</span>
-        <span class="journal">قاعدة بيانات EOL العالمية</span>
-        <a href="https://eol.org/pages/596426" class="link-btn" target="_blank">رابط المعلومات</a>
+        <span class="author">Encyclopedia of Life (EOL)</span>
+        <span class="title">Nelumbo nucifera (Sacred lotus) information page.</span>
+        <span class="journal">قاعدة البيانات العالمية</span>
+        <a href="https://eol.org/pages/596426" class="action-link" target="_blank">رابط المعلومات</a>
     </div>
 
 </div>
